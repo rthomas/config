@@ -113,4 +113,3 @@
 
 (use-package toml-mode :ensure)
 
-(use-package sql-mode :ensure)
