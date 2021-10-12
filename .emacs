@@ -23,7 +23,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(sql-mode sqlup-mode toml-mode protobuf-mode magit flycheck yasnippet company lsp-ui lsp-mode rustic use-package)))
+   '(diff-hl sql-mode sqlup-mode toml-mode protobuf-mode magit flycheck yasnippet company lsp-ui lsp-mode rustic use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -112,4 +112,8 @@
 (use-package protobuf-mode :ensure)
 
 (use-package toml-mode :ensure)
+
+(use-package diff-hl :ensure)
+
+(global-diff-hl-mode)
 
