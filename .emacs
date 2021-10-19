@@ -1,6 +1,7 @@
 ;; Emacs preferences
 (menu-bar-mode -1)
-(tool-bar-mode -1) 
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
 (setq inhibit-startup-screen t)
 
 ;; ido mode
@@ -23,7 +24,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(diff-hl sql-mode sqlup-mode toml-mode protobuf-mode magit flycheck yasnippet company lsp-ui lsp-mode rustic use-package)))
+   '(vscode-icon dired-sidebar diff-hl sql-mode sqlup-mode toml-mode protobuf-mode magit flycheck yasnippet company lsp-ui lsp-mode rustic use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -117,3 +118,24 @@
 
 (global-diff-hl-mode)
 
+(use-package dired-sidebar
+  :bind (("C-x C-n" . dired-sidebar-toggle-sidebar))
+  :ensure t
+  :commands (dired-sidebar-toggle-sidebar)
+  :init
+  (add-hook 'dired-sidebar-mode-hook
+            (lambda ()
+              (unless (file-remote-p default-directory)
+                (auto-revert-mode))))
+  :config
+  (push 'toggle-window-split dired-sidebar-toggle-hidden-commands)
+  (push 'rotate-windows dired-sidebar-toggle-hidden-commands)
+
+  (setq dired-sidebar-subtree-line-prefix "__")
+  (setq dired-sidebar-theme 'vscode)
+  (setq dired-sidebar-use-term-integration t)
+  (setq dired-sidebar-use-custom-font t))
+
+(use-package vscode-icon
+  :ensure t
+  :commands (vscode-icon-for-file))
