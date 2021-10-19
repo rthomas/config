@@ -3,6 +3,7 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (setq inhibit-startup-screen t)
+(windmove-default-keybindings 'meta)
 
 ;; ido mode
 (setq ido-enable-flex-matching t)
