@@ -25,7 +25,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(vscode-icon dired-sidebar diff-hl sql-mode sqlup-mode toml-mode protobuf-mode magit flycheck yasnippet company lsp-ui lsp-mode rustic use-package)))
+   '(just-mode vscode-icon dired-sidebar diff-hl sql-mode sqlup-mode toml-mode protobuf-mode magit flycheck yasnippet company lsp-ui lsp-mode rustic use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -117,6 +117,8 @@
 
 (use-package diff-hl :ensure)
 
+(use-package just-mode :ensure)
+
 (global-diff-hl-mode)
 
 (use-package dired-sidebar
@@ -140,3 +142,4 @@
 (use-package vscode-icon
   :ensure t
   :commands (vscode-icon-for-file))
+
